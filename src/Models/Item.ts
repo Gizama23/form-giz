@@ -4,8 +4,10 @@ export interface RootObject {
 }
 
 export interface ItemProp {
-  discord?: string;
-  twitter?: string;
+  discord: string;
+  discordUrl: string;
+  twitter: string;
+  twitterUrl: string;
   home?: Home;
   cotact?: Cotact;
   com?: Com;
@@ -57,6 +59,7 @@ export interface Cotact {
 export interface Home {
   header: Header;
   info: Info;
+  banner: Banner;
 }
 
 export interface Info {
@@ -68,4 +71,15 @@ export interface Info {
 export interface Header {
   title: string;
   desc: string;
+  url: string;
+}
+interface Banner {
+  img1: string;
+  img2: string;
+  img3: string;
+  img4: string;
+  img5: string;
+  img6: string;
+  img7: string;
+  img8: string;
 }

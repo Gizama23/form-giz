@@ -6,8 +6,17 @@
         <input placeholder="#teste@1234" v-model="content.discord" />
       </div>
       <div className="input">
+        <label>Discord link</label>
+        <input v-model="content.discordUrl" />
+      </div>
+
+      <div className="input">
         <label>Twitter</label>
         <input placeholder="@teste" v-model="content.twitter" />
+      </div>
+      <div className="input">
+        <label>Twitter link</label>
+        <input v-model="content.twitterUrl" />
       </div>
 
       <!-- Home -->
@@ -19,21 +28,61 @@
         <input v-model="content.home.header.title" />
       </div>
       <div className="input">
+        <label>Image Url</label>
+        <input v-model="content.home.header.url" />
+      </div>
+      <div className="input">
         <label>Description</label>
         <textarea rows="6" v-model="content.home.header.desc" />
       </div>
+
       <h2>Info</h2>
       <div className="input">
         <label>Title</label>
         <input v-model="content.home.info.title" />
       </div>
       <div className="input">
-        <label>Image</label>
+        <label>Image Url</label>
         <input v-model="content.home.info.img" />
       </div>
+
       <div className="input">
         <label>Description</label>
         <textarea rows="6" v-model="content.home.info.desc" />
+      </div>
+
+      <h2>Banner</h2>
+      <div className="input">
+        <label>Image 1</label>
+        <input v-model="content.home.banner.img1" />
+      </div>
+      <div className="input">
+        <label>Image 2</label>
+        <input v-model="content.home.banner.img2" />
+      </div>
+      <div className="input">
+        <label>Image 3</label>
+        <input v-model="content.home.banner.img3" />
+      </div>
+      <div className="input">
+        <label>Image 4</label>
+        <input v-model="content.home.banner.img4" />
+      </div>
+      <div className="input">
+        <label>Image 5</label>
+        <input v-model="content.home.banner.img5" />
+      </div>
+      <div className="input">
+        <label>Image 6</label>
+        <input v-model="content.home.banner.img6" />
+      </div>
+      <div className="input">
+        <label>Image 7</label>
+        <input v-model="content.home.banner.img7" />
+      </div>
+      <div className="input">
+        <label>Image 8</label>
+        <input v-model="content.home.banner.img8" />
       </div>
       <!-- //////// -->
 
@@ -288,7 +337,9 @@ export default defineComponent({
       },
       contentProp: {
         discord: "",
+        discordUrl: "",
         twitter: "",
+        twitterUrl: "",
         home: {
           header: {
             title: "",
@@ -298,6 +349,16 @@ export default defineComponent({
             title: "",
             desc: "",
             img: "",
+          },
+          banner: {
+            img1: "",
+            img2: "",
+            img3: "",
+            img4: "",
+            img5: "",
+            img6: "",
+            img7: "",
+            img8: "",
           },
         },
         cotact: {
