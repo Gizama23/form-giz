@@ -215,6 +215,10 @@
         <label>Miniature</label>
         <input v-model="portTemp.miniature" />
       </div>
+      <div className="input">
+        <label>Credit</label>
+        <input v-model="portTemp.credit" />
+      </div>
       <div
         v-if="portTemp.type === 'image' || portTemp.type === 'video'"
         className="input"
@@ -269,7 +273,9 @@
           <a :href="port.full.url" target="_blank" rel="noopener noreferrer"
             >Url</a
           >
-          <div class="remover">Remover</div>
+          <div class="remover" @click="removerPortVtuber(port.full.url)">
+            Remover
+          </div>
         </div>
       </div>
       <button @click="addPort()" type="button" class="outlined">
@@ -292,6 +298,7 @@
           </div>
 
           <div v-if="port.type === 'vTuber'">
+            <div>Slide number: {{ port.items.length }}</div>
             <b>Main:</b>
             <div><b>type:</b> {{ port.items[0].main.type }}</div>
             <div><b>url:</b> {{ port.items[0].main.url }}</div>
@@ -299,6 +306,10 @@
             <b>Full:</b>
             <div><b>type:</b> {{ port.items[0].full.type }}</div>
             <div><b>url:</b> {{ port.items[0].full.url }}</div>
+          </div>
+
+          <div class="remover" @click="removerPort(port.miniature)">
+            Remover
           </div>
         </div>
       </div>
@@ -326,6 +337,7 @@ export default defineComponent({
         type: "",
         miniature: "",
         url: "",
+        credit: "",
         main: {
           type: "",
           url: "",
@@ -443,6 +455,16 @@ export default defineComponent({
         );
       }
     },
+    removerPortVtuber(url: string) {
+      this.portItemTemp = this.portItemTemp.filter(
+        (item: any) => item.full.url != url
+      );
+    },
+    removerPort(url: string) {
+      this.content.port = this.content.port.filter(
+        (item: any) => item.miniature != url
+      );
+    },
     addExemple() {
       if (this.content.com) {
         this.content.com.header.example = [
@@ -486,6 +508,7 @@ export default defineComponent({
         {
           type: this.portTemp.type,
           miniature: this.portTemp.miniature,
+          credit: this.portTemp.credit,
           url: this.portTemp.url,
           items: this.portTemp.type === "vTuber" ? this.portItemTemp : [],
         },
@@ -495,6 +518,7 @@ export default defineComponent({
       this.portTemp = {
         type: "",
         miniature: "",
+        credit: "",
         url: "",
         main: {
           type: "",
